@@ -59,7 +59,7 @@ const Projects = () => {
     {
       imageUrl:
         "/static/Mobile_app_home.png",
-      title: "ANTI GPT",
+      title: "AntiGPT Mobile Application",
       description:
         "A privacy-first AI verification platform designed to detect AI-generated images, videos, audio, and scams. Trust nothing. Verify everything.",
       keywords: [
@@ -76,7 +76,7 @@ const Projects = () => {
         
       },
       reverse: true,
-      learnMoreLink: "/products/antigpt",
+      learnMoreLink: "/products/anti-gpt",
     },
     {
       imageUrl:
