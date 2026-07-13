@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Image.css";
-// import { Android } from "@mui/icons-material";
 
 const ImageComponent = ({
   imageUrl,
@@ -46,9 +46,9 @@ const ImageComponent = ({
           })}
         </div>
 
-        <a href={learnMoreLink} className="learn-more-btn">
+        <Link to={learnMoreLink} className="learn-more-btn">
           Learn More
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -59,14 +59,14 @@ const Projects = () => {
     {
       imageUrl:
         "/static/Mobile_app_home.png",
-      title: "ANTI-0 Mobile Application",
+      title: "ANTI GPT",
       description:
-        "A privacy-first mobile application designed to detect AI-generated media. Built for real-world use with fast on-device intelligence and optional verification.",
+        "A privacy-first AI verification platform designed to detect AI-generated images, videos, audio, and scams. Trust nothing. Verify everything.",
       keywords: [
         "Deepfake Detection",
-        "On-device AI",
+        "Voice Clone Detection",
         "Privacy First",
-        "Real-time Analysis",
+        "Multi-engine AI",
         "Download Now:",
         "iOS",
         
@@ -76,12 +76,12 @@ const Projects = () => {
         
       },
       reverse: true,
-      learnMoreLink: "/products/anti-0",
+      learnMoreLink: "/products/antigpt",
     },
     {
       imageUrl:
         "/static/enterprise_product.jpeg",
-      title: "ANTI-AI Shield",
+      title: "ANTI_TOD",
       description:
         "An enterprise-grade security platform built to predict threats, enforce governed AI decisions, and protect modern cloud infrastructure before attacks occur.",
       keywords: [
@@ -92,7 +92,7 @@ const Projects = () => {
       ],
       platformLinks: {},
       reverse: false,
-      learnMoreLink: "/products/enterprise",
+      learnMoreLink: "/products/antitod",
     },
   ];
 

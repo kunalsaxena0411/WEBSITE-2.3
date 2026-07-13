@@ -31,6 +31,8 @@ import Webser from "./Components/SpecificContactPage/webcontact";
 // Product pages
 import AntiZero from "./Components/ProductPages/AntiZero";
 import Enterprise from "./Components/ProductPages/Enterprise";
+import Antitod from "./Components/ProductPages/Antitod/Antitod";
+import AntiGPT from "./Components/ProductPages/AntiGPT/AntiGPT";
 
 // Policy pages
 import Privacy from "./Components/Policies/Privacy";
@@ -85,6 +87,14 @@ function App() {
                 <Route
                   path="/products/enterprise"
                   element={<Enterprise />}
+                />
+                <Route
+                  path="/products/antitod"
+                  element={<Antitod />}
+                />
+                <Route
+                  path="/products/antigpt"
+                  element={<AntiGPT />}
                 />
 
                 {/* specific services */}

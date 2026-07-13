@@ -1,0 +1,2097 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AntiTod | Predictive Security Orchestration</title>
+  <meta name="description"
+    content="AntiTod is a predictive security orchestration platform for threat intelligence, policy synthesis, and governed response automation." />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Rubik:wght@500;600;700&display=swap">
+  <style>
+    @font-face {
+      font-family: "Ethnocentric";
+      src: url("Fonts/ethnocentric_rg.otf") format("opentype");
+    }
+
+    :root {
+      --ink: #010205;
+      --panel: #020503;
+      --panel-2: #030906;
+      --paper: #e8f0eb;
+      --muted: #6b8a74;
+      --line: rgba(4, 99, 7, 0.18);
+      --green: #0a2e12;
+      --green-bright: #1a5c25;
+      --green-2: #041a08;
+      --cyan: #0d3d18;
+      --amber: #b8892a;
+      --rose: #c04455;
+      --violet: #6a44cc;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.85);
+      --radius: 8px;
+      --content: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(4, 99, 7, 0.08), transparent 280px),
+        linear-gradient(90deg, rgba(4, 50, 7, 0.10), transparent 35%),
+        #010205;
+      color: var(--paper);
+      font-family:
+        "Poppins", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      letter-spacing: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, black, transparent 72%);
+      opacity: 0.45;
+      animation: gridDrift 24s linear infinite;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(115deg, transparent 0 32%, rgba(4, 99, 7, 0.06) 36%, transparent 42%),
+        repeating-linear-gradient(0deg, transparent 0 92px, rgba(4, 60, 7, 0.025) 93px, transparent 96px);
+      opacity: 0.55;
+      mix-blend-mode: screen;
+      animation: signalSweep 11s ease-in-out infinite;
+    }
+
+    @keyframes gridDrift {
+      from {
+        background-position: 0 0, 0 0;
+      }
+
+      to {
+        background-position: 54px 54px, 54px 54px;
+      }
+    }
+
+    @keyframes signalSweep {
+
+      0%,
+      100% {
+        transform: translateX(-8%) translateY(0);
+        opacity: 0.34;
+      }
+
+      45% {
+        transform: translateX(8%) translateY(-2%);
+        opacity: 0.72;
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .page-shell {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-shell::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, transparent, rgba(4, 99, 7, 0.07), transparent),
+        repeating-linear-gradient(120deg, transparent 0 170px, rgba(4, 99, 7, 0.03) 171px, transparent 174px);
+      opacity: 0.28;
+      transform: translateX(-35%);
+      animation: circuitPass 13s cubic-bezier(0.72, 0, 0.21, 1) infinite;
+    }
+
+    @keyframes circuitPass {
+
+      0%,
+      20% {
+        transform: translateX(-42%);
+      }
+
+      55% {
+        transform: translateX(34%);
+      }
+
+      100% {
+        transform: translateX(42%);
+      }
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 16px;
+      top: 16px;
+      z-index: 20;
+      transform: translateY(-140%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      color: var(--ink);
+      padding: 10px 14px;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(0, 0, 0, 0.76);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      width: min(var(--content), calc(100% - 32px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: max-content;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(4, 99, 7, 0.35);
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(4, 99, 7, 0.14), rgba(4, 50, 7, 0.06)),
+        #010205;
+      box-shadow: 0 0 18px rgba(4, 99, 7, 0.14);
+      color: var(--green-bright);
+      font-weight: 800;
+    }
+
+    .brand strong {
+      display: block;
+      font-family: "Ethnocentric", sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 18px rgba(4, 99, 7, 0.35);
+    }
+
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.76rem;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      border-radius: 999px;
+      color: #ccdbd0;
+      font-size: 0.86rem;
+      padding: 8px 11px;
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: rgba(4, 99, 7, 0.12);
+      color: #b8d4be;
+      outline: none;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      min-height: 42px;
+      border: 1px solid rgba(4, 99, 7, 0.28);
+      border-radius: var(--radius);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 15px;
+      color: var(--paper);
+      background: rgba(1, 2, 5, 0.5);
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-1px);
+      border-color: #1a5c25;
+      background: rgba(4, 99, 7, 0.10);
+      box-shadow: 0 0 12px rgba(4, 99, 7, 0.22);
+      outline: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1a5c25, #0a2e12 55%, #010205);
+      border-color: transparent;
+      color: #c8e6cc;
+      box-shadow: 0 18px 42px rgba(4, 99, 7, 0.28);
+      font-weight: 800;
+    }
+
+    .btn-primary:hover {
+      border-color: #1a5c25;
+      box-shadow: 0 0 0 1px rgba(4, 99, 7, 0.35), 0 8px 28px rgba(4, 99, 7, 0.30);
+      background: rgba(4, 99, 7, 0.14);
+      color: #d8f0dc;
+    }
+
+    .hero {
+      width: min(var(--content), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 86px 0 70px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+      gap: 38px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      border: 1px solid rgba(4, 99, 7, 0.28);
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      color: #7aad82;
+      background: rgba(4, 99, 7, 0.07);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1a5c25;
+      box-shadow: 0 0 0 0 rgba(4, 99, 7, 0.6);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      70% {
+        box-shadow: 0 0 0 12px rgba(4, 99, 7, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(4, 99, 7, 0);
+      }
+    }
+
+    .hero h1 {
+      max-width: 620px;
+      margin: 18px 0 16px;
+      font-size: clamp(2.8rem, 5.8vw, 5rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .hero h1 .hero-line-accent {
+      color: transparent;
+    }
+
+    .hero-line {
+      display: block;
+      color: var(--paper);
+    }
+
+    .hero-line-accent {
+      width: fit-content;
+      background: linear-gradient(90deg, #1a5c25, #0d3d18, #1a5c25);
+      background-size: 220% 100%;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: textSweep 5.5s ease-in-out infinite;
+    }
+
+    @keyframes textSweep {
+
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .hero-loop {
+      width: fit-content;
+      height: 36px;
+      border: 1px solid rgba(4, 99, 7, 0.18);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding: 6px 12px;
+      color: #a8c4ae;
+      background: rgba(4, 99, 7, 0.05);
+      overflow: hidden;
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+
+    .hero-loop-label {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .hero-loop-words {
+      height: 22px;
+      overflow: hidden;
+      color: #2a7a35;
+    }
+
+    .hero-loop-words span {
+      display: block;
+      height: 22px;
+      animation: wordSlide 6s cubic-bezier(0.7, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes wordSlide {
+
+      0%,
+      22% {
+        transform: translateY(0);
+      }
+
+      30%,
+      52% {
+        transform: translateY(-22px);
+      }
+
+      60%,
+      82% {
+        transform: translateY(-44px);
+      }
+
+      90%,
+      100% {
+        transform: translateY(-66px);
+      }
+    }
+
+    .hero-copy {
+      max-width: 560px;
+      color: #c7d6cb;
+      font-size: clamp(1rem, 1.4vw, 1.16rem);
+      line-height: 1.65;
+      margin: 0 0 24px;
+    }
+
+    .hero-actions,
+    .hero-proof {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-proof {
+      margin-top: 26px;
+    }
+
+    .proof-pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 12px;
+      color: #d7e4dc;
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 0.86rem;
+    }
+
+    .hero-visual {
+      --tilt-x: 2deg;
+      --tilt-y: -5deg;
+      --lift: 0px;
+      position: relative;
+      border: 1px solid rgba(219, 239, 223, 0.18);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+      box-shadow: var(--shadow);
+      padding: 12px;
+      transform: perspective(1200px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(var(--lift));
+      animation: floatPanel 7s ease-in-out infinite;
+      transition: transform 180ms ease, box-shadow 220ms ease;
+      isolation: isolate;
+    }
+
+    @keyframes floatPanel {
+
+      0%,
+      100% {
+        --lift: 0px;
+      }
+
+      50% {
+        --lift: -10px;
+      }
+    }
+
+    .hero-visual::before,
+    .showcase-shell::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(115deg, transparent 0 22%, rgba(4, 99, 7, 0.55), rgba(4, 50, 7, 0.40), transparent 58%);
+      background-size: 260% 260%;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      pointer-events: none;
+      animation: borderOrbit 4.8s linear infinite;
+      z-index: 2;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: var(--radius);
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, transparent 0 44%, rgba(4, 99, 7, 0.10) 50%, transparent 58%),
+        linear-gradient(180deg, transparent, rgba(4, 50, 7, 0.05), transparent);
+      mix-blend-mode: screen;
+      transform: translateX(-120%);
+      animation: screenScan 5.2s cubic-bezier(0.72, 0, 0.2, 1) infinite;
+      z-index: 3;
+    }
+
+    @keyframes borderOrbit {
+      from {
+        background-position: 0% 50%;
+      }
+
+      to {
+        background-position: 260% 50%;
+      }
+    }
+
+    @keyframes screenScan {
+
+      0%,
+      24% {
+        transform: translateX(-120%);
+        opacity: 0;
+      }
+
+      38% {
+        opacity: 0.9;
+      }
+
+      62% {
+        transform: translateX(120%);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateX(120%);
+        opacity: 0;
+      }
+    }
+
+    .browser-frame {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(4, 99, 7, 0.14);
+      border-radius: var(--radius);
+      background: #010402;
+    }
+
+    .browser-frame::before {
+      content: "";
+      position: absolute;
+      inset: 38px 0 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(180deg,
+          rgba(4, 99, 7, 0.06) 0 1px,
+          transparent 1px 9px);
+      opacity: 0.36;
+      animation: scanLines 6s linear infinite;
+      z-index: 2;
+    }
+
+    @keyframes scanLines {
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: 0 90px;
+      }
+    }
+
+    .browser-chrome {
+      min-height: 38px;
+      border-bottom: 1px solid rgba(219, 239, 223, 0.12);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 12px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .chrome-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .chrome-dot:nth-child(1) {
+      background: var(--rose);
+    }
+
+    .chrome-dot:nth-child(2) {
+      background: var(--amber);
+    }
+
+    .chrome-dot:nth-child(3) {
+      background: var(--green);
+    }
+
+    .browser-frame img {
+      width: 100%;
+      aspect-ratio: 1917 / 911;
+      object-fit: cover;
+      object-position: top left;
+      transition: opacity 160ms ease;
+      transform: scale(1.015);
+      animation: dashboardBreath 9s ease-in-out infinite;
+    }
+
+    @keyframes dashboardBreath {
+
+      0%,
+      100% {
+        transform: scale(1.015) translate3d(0, 0, 0);
+        filter: saturate(1);
+      }
+
+      50% {
+        transform: scale(1.04) translate3d(-1.4%, -1.2%, 0);
+        filter: saturate(1.18);
+      }
+    }
+
+    .floating-card {
+      position: absolute;
+      right: -16px;
+      bottom: 28px;
+      width: min(250px, 42%);
+      border: 1px solid rgba(4, 99, 7, 0.18);
+      border-radius: var(--radius);
+      background: rgba(1, 4, 2, 0.92);
+      backdrop-filter: blur(14px);
+      padding: 14px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+      z-index: 4;
+      animation: cardHover 4.6s ease-in-out infinite;
+    }
+
+    @keyframes cardHover {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-7px);
+      }
+    }
+
+    .floating-card strong {
+      display: block;
+      font-size: 0.86rem;
+      margin-bottom: 10px;
+    }
+
+    .signal-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      color: #c9d8cf;
+      font-size: 0.78rem;
+      padding: 8px 0;
+      border-top: 1px solid rgba(219, 239, 223, 0.1);
+    }
+
+    .signal-row b {
+      color: #2a7a35;
+      animation: valueBlink 2.8s ease-in-out infinite;
+    }
+
+    .signal-row:nth-child(3) b {
+      animation-delay: 0.45s;
+    }
+
+    .signal-row:nth-child(4) b {
+      animation-delay: 0.9s;
+    }
+
+    @keyframes valueBlink {
+
+      0%,
+      100% {
+        text-shadow: none;
+      }
+
+      50% {
+        text-shadow: 0 0 14px rgba(4, 99, 7, 0.55);
+      }
+    }
+
+    .section {
+      width: min(var(--content), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 88px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 32px;
+    }
+
+    .section-kicker {
+      color: #2a7a35;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 10px 0 12px;
+      font-size: clamp(2rem, 4.5vw, 4rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: #bdccc3;
+      font-size: 1.04rem;
+      line-height: 1.7;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .pain-card,
+    .solution-card,
+    .metric-card,
+    .value-card,
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .pain-card,
+    .solution-card,
+    .metric-card,
+    .value-card,
+    .module-item,
+    .faq-item {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pain-card::after,
+    .solution-card::after,
+    .metric-card::after,
+    .value-card::after,
+    .module-item::after,
+    .faq-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(115deg, transparent 0 38%, rgba(255, 255, 255, 0.12), transparent 62%);
+      transform: translateX(-120%);
+      transition: transform 520ms ease;
+    }
+
+    .pain-card:hover::after,
+    .solution-card:hover::after,
+    .metric-card:hover::after,
+    .value-card:hover::after,
+    .module-item:hover::after,
+    .faq-item:hover::after {
+      transform: translateX(120%);
+    }
+
+    .pain-card {
+      padding: clamp(22px, 3vw, 34px);
+    }
+
+    .pain-card h3,
+    .solution-card h3,
+    .value-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.18rem;
+    }
+
+    .pain-card p,
+    .solution-card p,
+    .value-card p {
+      color: #c5d3ca;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .threat-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .threat-item {
+      border: 1px solid rgba(219, 239, 223, 0.12);
+      border-radius: var(--radius);
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      background: rgba(6, 11, 9, 0.52);
+      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+    }
+
+    .threat-item:hover {
+      transform: translateX(6px);
+      border-color: rgba(4, 99, 7, 0.30);
+      background: rgba(4, 99, 7, 0.06);
+    }
+
+    .threat-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--amber);
+      font-weight: 900;
+      box-shadow: inset 0 0 0 1px rgba(245, 201, 106, 0.16);
+    }
+
+    .threat-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .threat-item span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .solution-card {
+      padding: 22px;
+      min-height: 230px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 240ms ease, border-color 240ms ease, background 240ms ease;
+    }
+
+    .solution-card:hover,
+    .value-card:hover,
+    .metric-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(4, 99, 7, 0.28);
+      background: rgba(4, 99, 7, 0.05);
+    }
+
+    .solution-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 2px;
+      background: linear-gradient(90deg, #041a08, #0a2e12, #041a08);
+    }
+
+    .card-number {
+      color: var(--cyan);
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 36px;
+    }
+
+    .showcase-shell {
+      position: relative;
+      border: 1px solid rgba(219, 239, 223, 0.16);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.045);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .showcase-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tab-button {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(219, 239, 223, 0.14);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: #d4e0d8;
+      cursor: pointer;
+      padding: 9px 13px;
+      min-width: max-content;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+
+    .tab-button::after {
+      content: "";
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 4px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #1a5c25, #0d3d18);
+      transform: scaleX(0);
+      transform-origin: left;
+      opacity: 0;
+    }
+
+    .tab-button[aria-selected="true"] {
+      background: rgba(4, 99, 7, 0.12);
+      border-color: rgba(4, 99, 7, 0.38);
+      color: #b0cdb5;
+    }
+
+    .tab-button[aria-selected="true"]::after {
+      opacity: 1;
+      animation: tabLoad 4.5s linear both;
+    }
+
+    @keyframes tabLoad {
+      from {
+        transform: scaleX(0);
+      }
+
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    .showcase-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 0;
+    }
+
+    .screenshot-panel {
+      position: relative;
+      min-width: 0;
+      background: #040907;
+    }
+
+    .screenshot-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 18%),
+        linear-gradient(115deg, rgba(4, 99, 7, 0.08), transparent 28%, rgba(4, 50, 7, 0.05), transparent 64%);
+      opacity: 0.64;
+      mix-blend-mode: screen;
+    }
+
+    .screenshot-panel img {
+      width: 100%;
+      aspect-ratio: 1917 / 911;
+      object-fit: cover;
+      object-position: top left;
+      transition: opacity 160ms ease;
+    }
+
+    .showcase-copy {
+      border-left: 1px solid var(--line);
+      padding: 26px;
+      background: rgba(1, 4, 2, 0.82);
+    }
+
+    .showcase-copy h3 {
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+    }
+
+    .showcase-copy p {
+      color: #c2d1c8;
+      line-height: 1.7;
+      margin: 0 0 18px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 8px;
+      color: #dbe7df;
+      font-size: 0.92rem;
+    }
+
+    .check {
+      color: #2a7a35;
+      font-weight: 900;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .metric-card {
+      padding: 18px;
+      animation: metricPulse 5.5s ease-in-out infinite;
+    }
+
+    .metric-card:nth-child(2) {
+      animation-delay: 0.35s;
+    }
+
+    .metric-card:nth-child(3) {
+      animation-delay: 0.7s;
+    }
+
+    .metric-card:nth-child(4) {
+      animation-delay: 1.05s;
+    }
+
+    @keyframes metricPulse {
+
+      0%,
+      100% {
+        box-shadow: none;
+      }
+
+      50% {
+        box-shadow: inset 0 0 0 1px rgba(4, 99, 7, 0.12), 0 18px 44px rgba(4, 99, 7, 0.06);
+      }
+    }
+
+    .metric-card strong {
+      display: block;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: var(--paper);
+    }
+
+    .metric-card span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .value-card {
+      padding: 22px;
+      min-height: 190px;
+    }
+
+    .value-card .tag {
+      display: inline-flex;
+      margin-bottom: 18px;
+      border: 1px solid rgba(4, 99, 7, 0.18);
+      border-radius: 999px;
+      padding: 7px 10px;
+      color: #2a7a35;
+      background: rgba(4, 99, 7, 0.05);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .why-layout {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .why-panel {
+      border: 1px solid rgba(4, 99, 7, 0.18);
+      border-radius: var(--radius);
+      padding: 26px;
+      background:
+        linear-gradient(135deg, rgba(4, 99, 7, 0.08), rgba(4, 50, 7, 0.05)),
+        rgba(1, 4, 2, 0.6);
+    }
+
+    .why-panel h3 {
+      margin: 0 0 14px;
+      font-size: 1.6rem;
+    }
+
+    .why-panel p {
+      margin: 0 0 18px;
+      color: #c4d3ca;
+      line-height: 1.7;
+    }
+
+    .scope-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .scope-row {
+      border: 1px solid rgba(219, 239, 223, 0.12);
+      border-radius: var(--radius);
+      display: grid;
+      grid-template-columns: 34px 1fr auto;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      background: rgba(3, 8, 6, 0.42);
+    }
+
+    .scope-row i {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      font-style: normal;
+      font-weight: 900;
+      color: var(--ink);
+      background: #0a2e12;
+    }
+
+    .scope-row strong {
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .scope-row span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .scope-row b {
+      color: var(--cyan);
+      font-size: 0.78rem;
+    }
+
+    .module-map {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .module-item {
+      border: 1px solid rgba(219, 239, 223, 0.13);
+      border-radius: var(--radius);
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .module-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(4, 99, 7, 0.25);
+      background: rgba(4, 99, 7, 0.05);
+    }
+
+    .module-item small {
+      color: var(--amber);
+      font-weight: 800;
+    }
+
+    .module-item strong {
+      display: block;
+      margin: 8px 0;
+    }
+
+    .module-item p {
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 18px;
+    }
+
+    .faq-aside {
+      border: 1px solid rgba(219, 239, 223, 0.14);
+      border-radius: var(--radius);
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.04);
+      align-self: start;
+    }
+
+    .faq-aside h3 {
+      margin: 0 0 12px;
+      font-size: 1.4rem;
+    }
+
+    .faq-aside p {
+      color: #c4d3ca;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .faq-item {
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      border: 0;
+      color: var(--paper);
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .faq-question span {
+      font-weight: 800;
+    }
+
+    .faq-question b {
+      color: #2a7a35;
+      font-size: 1.25rem;
+      transition: transform 180ms ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      color: #c4d3ca;
+      line-height: 1.7;
+      transition: max-height 220ms ease;
+    }
+
+    .faq-answer p {
+      margin: 0;
+      padding: 0 18px 18px;
+    }
+
+    .faq-item.is-open .faq-answer {
+      max-height: 220px;
+    }
+
+    .faq-item.is-open .faq-question b {
+      transform: rotate(45deg);
+    }
+
+    .final-cta {
+      width: min(var(--content), calc(100% - 32px));
+      margin: 0 auto 70px;
+      border: 1px solid rgba(4, 99, 7, 0.18);
+      border-radius: var(--radius);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: clamp(24px, 4vw, 42px);
+      background:
+        linear-gradient(135deg, rgba(4, 99, 7, 0.10), rgba(4, 50, 7, 0.06), rgba(1, 2, 5, 0.7)),
+        rgba(255, 255, 255, 0.02);
+      box-shadow: var(--shadow);
+    }
+
+    .final-cta h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+    }
+
+    .final-cta p {
+      margin: 0;
+      color: #c4d3ca;
+      line-height: 1.7;
+    }
+
+    .footer {
+      background: rgba(2, 3, 8, 0.85);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line);
+      padding: 40px 16px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 560ms ease, transform 560ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-copy-wrap.is-visible .eyebrow,
+    .hero-copy-wrap.is-visible .hero-line,
+    .hero-copy-wrap.is-visible .hero-loop,
+    .hero-copy-wrap.is-visible .hero-copy,
+    .hero-copy-wrap.is-visible .hero-actions,
+    .hero-copy-wrap.is-visible .hero-proof {
+      animation: heroRise 620ms ease both;
+    }
+
+    .hero-copy-wrap.is-visible .hero-line:nth-child(2) {
+      animation-delay: 90ms;
+    }
+
+    .hero-copy-wrap.is-visible .hero-loop {
+      animation-delay: 160ms;
+    }
+
+    .hero-copy-wrap.is-visible .hero-copy {
+      animation-delay: 210ms;
+    }
+
+    .hero-copy-wrap.is-visible .hero-actions {
+      animation-delay: 270ms;
+    }
+
+    .hero-copy-wrap.is-visible .hero-proof {
+      animation-delay: 330ms;
+    }
+
+    @keyframes heroRise {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1040px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero,
+      .problem-grid,
+      .why-layout,
+      .faq-grid,
+      .showcase-stage {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      .hero-visual {
+        transform: none;
+        animation: none;
+      }
+
+      .showcase-copy {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .metrics {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .top-actions {
+        width: 100%;
+      }
+
+      .top-actions .btn {
+        flex: 1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        gap: 28px;
+      }
+
+      .hero h1 {
+        max-width: 360px;
+        font-size: clamp(2.45rem, 11.5vw, 3.45rem);
+        line-height: 1;
+      }
+
+      .hero-loop {
+        height: 34px;
+        font-size: 0.84rem;
+        margin-bottom: 18px;
+      }
+
+      .hero-loop-words,
+      .hero-loop-words span {
+        height: 20px;
+      }
+
+      @keyframes wordSlide {
+
+        0%,
+        22% {
+          transform: translateY(0);
+        }
+
+        30%,
+        52% {
+          transform: translateY(-20px);
+        }
+
+        60%,
+        82% {
+          transform: translateY(-40px);
+        }
+
+        90%,
+        100% {
+          transform: translateY(-60px);
+        }
+      }
+
+      .floating-card {
+        position: static;
+        width: 100%;
+        margin-top: 12px;
+      }
+
+      .solution-grid,
+      .value-grid,
+      .module-map,
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .browser-frame img,
+      .screenshot-panel img {
+        aspect-ratio: 4 / 3;
+      }
+
+      .section {
+        padding: 66px 0;
+      }
+
+      .final-cta {
+        grid-template-columns: 1fr;
+        margin-bottom: 42px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#problem">Skip to content</a>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="#top" aria-label="AntiTod home">
+          <span class="brand-mark">A</span>
+          <span>
+            <strong>AntiTod</strong>
+            <span>Predictive security orchestration</span>
+          </span>
+        </a>
+
+        <nav class="nav-links" aria-label="Page sections">
+          <a href="#problem">Problem</a>
+          <a href="#solution">Solution</a>
+          <a href="#showcase">Screenshots</a>
+          <a href="#value">Value</a>
+          <a href="#why-us">Why Us</a>
+          <a href="#faq">FAQs</a>
+        </nav>
+
+        <div class="top-actions">
+          <a class="btn" href="#why-us">Modules</a>
+          <a class="btn btn-primary" href="#showcase">View Product</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy-wrap reveal">
+          <div class="eyebrow"><span class="pulse-dot"></span>Enterprise security platform</div>
+          <h1 id="hero-title">
+            <span class="hero-line">Predict threats.</span>
+            <span class="hero-line hero-line-accent">Respond faster.</span>
+          </h1>
+          <div class="hero-loop" aria-label="AntiTod workflow">
+            <span class="hero-loop-label">AntiTod helps teams</span>
+            <span class="hero-loop-words" aria-hidden="true">
+              <span>detect risk</span>
+              <span>predict paths</span>
+              <span>deploy policy</span>
+              <span>detect risk</span>
+            </span>
+          </div>
+          <p class="hero-copy">
+            AntiTod brings threats, attack paths, policies, and approvals into one
+            clear workspace for security teams.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#solution">Explore solution</a>
+            <a class="btn" href="#faq">Read FAQs</a>
+          </div>
+          <div class="hero-proof" aria-label="Product highlights">
+            <span class="proof-pill">37 planned routes</span>
+            <span class="proof-pill">3 role tiers</span>
+            <span class="proof-pill">7 security modules</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="AntiTod dashboard preview">
+          <div class="browser-frame">
+            <div class="browser-chrome" aria-hidden="true">
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+            </div>
+            <img src="images/dashboard.png" alt="AntiTod dashboard with security operations metrics" />
+          </div>
+          <aside class="floating-card" aria-label="Live platform signals">
+            <strong>Live orchestration signals</strong>
+            <div class="signal-row"><span>Consensus proposals</span><b>12 active</b></div>
+            <div class="signal-row"><span>Critical asset drift</span><b>8.7 risk</b></div>
+            <div class="signal-row"><span>Policy coverage</span><b>94%</b></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="problem">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Problem statement</span>
+          <h2>Security teams see the alert. They miss the story.</h2>
+          <p>
+            Modern attacks move through identity, endpoints, cloud services, policy gaps,
+            and human approval queues. Tools expose fragments, while teams still assemble
+            the attack path manually under pressure.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+          <article class="pain-card reveal">
+            <h3>The operating gap</h3>
+            <p>
+              A SOC analyst can read threats, a security engineer can write policies, and
+              an administrator can govern everything. But without a shared predictive layer,
+              every role works from a different version of risk.
+            </p>
+          </article>
+
+          <div class="threat-list">
+            <div class="threat-item reveal">
+              <span class="threat-icon">01</span>
+              <div>
+                <strong>Threat data arrives faster than context.</strong>
+                <span>Events, incidents, CVEs, honeypots, and endpoints compete for attention.</span>
+              </div>
+            </div>
+            <div class="threat-item reveal">
+              <span class="threat-icon">02</span>
+              <div>
+                <strong>Policies lag behind attacker movement.</strong>
+                <span>Manual rules are slow to validate, approve, deploy, and roll back.</span>
+              </div>
+            </div>
+            <div class="threat-item reveal">
+              <span class="threat-icon">03</span>
+              <div>
+                <strong>Automation without governance creates risk.</strong>
+                <span>Teams need agent speed with audit trails, scopes, and human authority.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="solution">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Solution statement</span>
+          <h2>One command layer for prediction, policy, and response.</h2>
+          <p>
+            AntiTod unifies synthetic threat generation, temporal attack graphs,
+            autonomous policy synthesis, consensus voting, vulnerability forecasting,
+            honeypot telemetry, and endpoint analysis in one governed workspace.
+          </p>
+        </div>
+
+        <div class="solution-grid">
+          <article class="solution-card reveal">
+            <div class="card-number">01 / Predict</div>
+            <h3>Model likely attack paths before they mature.</h3>
+            <p>
+              Correlate temporal events, CVE trends, asset scores, and attacker behavior
+              so teams can prioritize what is becoming dangerous.
+            </p>
+          </article>
+          <article class="solution-card reveal">
+            <div class="card-number">02 / Synthesize</div>
+            <h3>Generate policies from threat evidence.</h3>
+            <p>
+              Create, validate, stage, deploy, and monitor security policies with
+              impact analysis and rollback readiness.
+            </p>
+          </article>
+          <article class="solution-card reveal">
+            <div class="card-number">03 / Govern</div>
+            <h3>Keep every AI action explainable and scoped.</h3>
+            <p>
+              Role-based access, proposal voting, audit logs, and tenant controls keep
+              speed accountable.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="showcase">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Product screenshots</span>
+          <h2>The product story, shown through real UI moments.</h2>
+          <p>
+            Explore how AntiTod brings monitoring, investigation, threat simulation,
+            and policy synthesis into a single security workspace.
+          </p>
+        </div>
+
+        <div class="showcase-shell reveal">
+          <div class="showcase-tabs" role="tablist" aria-label="AntiTod screenshot views">
+            <button class="tab-button" type="button" role="tab" aria-selected="true" data-shot="dashboard">
+              Overview
+            </button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-shot="threats">
+              Threat generator
+            </button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-shot="events">
+              Event detail
+            </button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-shot="policy">
+              Policy synthesis
+            </button>
+          </div>
+
+          <div class="showcase-stage">
+            <div class="screenshot-panel">
+              <img id="showcase-image" src="images/dashboard.png" alt="AntiTod dashboard screenshot" />
+            </div>
+            <aside class="showcase-copy">
+              <h3 id="showcase-title">Overview dashboard</h3>
+              <p id="showcase-description">
+                A single command center for active threats, severity distribution,
+                component health, asset risk, attack types, events, and proposal status.
+              </p>
+              <ul class="feature-list" id="showcase-list">
+                <li><span class="check">+</span><span>Live operations metrics across core modules</span></li>
+                <li><span class="check">+</span><span>Top asset risk and attack type visibility</span></li>
+                <li><span class="check">+</span><span>Role-aware dashboard for fast SOC triage</span></li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+
+        <div class="metrics" aria-label="Product metrics">
+          <div class="metric-card reveal"><strong>4.8x</strong><span>faster path-to-policy cycle across response
+              workflows</span></div>
+          <div class="metric-card reveal"><strong>94%</strong><span>policy coverage visibility after validation</span>
+          </div>
+          <div class="metric-card reveal"><strong>8m</strong><span>from threat simulation to staged rollout</span></div>
+          <div class="metric-card reveal"><strong>100%</strong><span>auditable agent proposals and admin actions</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="value">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Value proposition</span>
+          <h2>Turn fragmented security work into a governed response loop.</h2>
+          <p>
+            AntiTod gives each role a clear job while keeping the organization aligned
+            around one model of risk, evidence, policy, and accountability.
+          </p>
+        </div>
+
+        <div class="value-grid">
+          <article class="value-card reveal">
+            <span class="tag">For SOC analysts</span>
+            <h3>See what matters first.</h3>
+            <p>
+              Read threats, events, incidents, endpoints, vulnerabilities, and honeypot
+              interactions with prioritized paths and evidence.
+            </p>
+          </article>
+          <article class="value-card reveal">
+            <span class="tag">For security engineers</span>
+            <h3>Move from insight to policy.</h3>
+            <p>
+              Generate, validate, and deploy policies from real threat context while
+              monitoring impact and rollback compatibility.
+            </p>
+          </article>
+          <article class="value-card reveal">
+            <span class="tag">For administrators</span>
+            <h3>Govern the system with confidence.</h3>
+            <p>
+              Manage tenants, API keys, users, audit logs, and system health with clear
+              access boundaries.
+            </p>
+          </article>
+          <article class="value-card reveal">
+            <span class="tag">For leadership</span>
+            <h3>Translate risk into operating clarity.</h3>
+            <p>
+              Understand where protection is improving, where exposure is rising, and
+              which controls are ready for deployment.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="why-us">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Why us</span>
+          <h2>Built for predictive defense, not noisy dashboards.</h2>
+          <p>
+            AntiTod is designed around the complete security decision chain:
+            simulate, correlate, predict, propose, validate, deploy, audit.
+          </p>
+        </div>
+
+        <div class="why-layout">
+          <aside class="why-panel reveal">
+            <h3>Role-aware by default</h3>
+            <p>
+              Access is not a bolt-on. Each route maps to a scope, and higher roles
+              inherit lower-role capabilities without blurring responsibility.
+            </p>
+            <div class="scope-stack">
+              <div class="scope-row">
+                <i>1</i>
+                <span><strong>SOC Analyst</strong><span>read:threats</span></span>
+                <b>Tier 1</b>
+              </div>
+              <div class="scope-row">
+                <i>2</i>
+                <span><strong>Security Engineer</strong><span>write:policies</span></span>
+                <b>Tier 2</b>
+              </div>
+              <div class="scope-row">
+                <i>3</i>
+                <span><strong>Platform Administrator</strong><span>admin:all</span></span>
+                <b>Tier 3</b>
+              </div>
+            </div>
+          </aside>
+
+          <div class="module-map" aria-label="AntiTod module map">
+            <article class="module-item reveal">
+              <small>STG</small>
+              <strong>Synthetic Threat Generator</strong>
+              <p>Create attack samples with configurable diversity and output formats.</p>
+            </article>
+            <article class="module-item reveal">
+              <small>TKG</small>
+              <strong>Temporal Knowledge Graph</strong>
+              <p>Visualize attack chains, query timelines, and predict progression paths.</p>
+            </article>
+            <article class="module-item reveal">
+              <small>APS</small>
+              <strong>Autonomous Policy Synthesizer</strong>
+              <p>Generate, validate, deploy, and track security policies.</p>
+            </article>
+            <article class="module-item reveal">
+              <small>MAO</small>
+              <strong>Multi-Agent Orchestrator</strong>
+              <p>Coordinate proposals, votes, consensus, and evidence-backed approvals.</p>
+            </article>
+            <article class="module-item reveal">
+              <small>PVF</small>
+              <strong>Predictive Vulnerability Forecaster</strong>
+              <p>Forecast CVE trends, asset risk, severity, and remediation priority.</p>
+            </article>
+            <article class="module-item reveal">
+              <small>AHN + IETA</small>
+              <strong>Honeypots and endpoints</strong>
+              <p>Capture attacker behavior and analyze endpoint exposure across the fleet.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-heading reveal">
+          <span class="section-kicker">FAQs</span>
+          <h2>Product FAQs</h2>
+          <p>
+            Clear answers for teams evaluating AntiTod as a predictive security
+            orchestration layer.
+          </p>
+        </div>
+
+        <div class="faq-grid">
+          <aside class="faq-aside reveal">
+            <h3>Enterprise-ready orchestration</h3>
+            <p>
+              AntiTod connects threat intelligence, policy workflows, agent consensus,
+              and audit controls so teams can move from detection to governed action.
+            </p>
+          </aside>
+
+          <div class="faq-list">
+            <article class="faq-item is-open reveal">
+              <button class="faq-question" type="button" aria-expanded="true">
+                <span>What is AntiTod?</span><b>+</b>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  AntiTod is a B2B security orchestration platform for predictive
+                  threat analysis, policy synthesis, agent consensus, and governed response.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item reveal">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>Who is the product for?</span><b>+</b>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  It is designed for SOC analysts, security engineers, and platform
+                  administrators working across enterprise infrastructure and cloud systems.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item reveal">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>How is AI controlled?</span><b>+</b>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  AI-generated proposals move through scopes, validation checks, consensus
+                  votes, deployment tracking, and audit logs before they become operational.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item reveal">
+              <button class="faq-question" type="button" aria-expanded="false">
+                <span>Can AntiTod support enterprise workflows?</span><b>+</b>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Yes. AntiTod is structured around role-based access, tenant controls,
+                  audit trails, policy validation, and staged deployment workflows.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta reveal" aria-label="Final product call to action">
+        <div>
+          <h2>Bring prediction and response into one system.</h2>
+          <p>
+            AntiTod helps security teams understand risk earlier, create stronger
+            policies, and govern every response with clarity.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="#top">Back to top</a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      AntiTod predictive security orchestration platform.
+    </footer>
+  </div>
+
+  <script>
+    const screenshots = {
+      dashboard: {
+        src: "images/dashboard.png",
+        alt: "AntiTod dashboard screenshot",
+        title: "Overview dashboard",
+        description:
+          "A single command center for active threats, severity distribution, component health, asset risk, attack types, events, and proposal status.",
+        points: [
+          "Live operations metrics across core modules",
+          "Top asset risk and attack type visibility",
+          "Role-aware dashboard for fast SOC triage",
+        ],
+      },
+      threats: {
+        src: "images/generate_thrates.png",
+        alt: "AntiTod synthetic threat generator screenshot",
+        title: "Synthetic threat generator",
+        description:
+          "Create synthetic attack samples with configurable attack types, diversity, novelty controls, sample counts, and export formats.",
+        points: [
+          "Configurable generation workflows",
+          "Diversity and novelty controls for stronger testing",
+          "Structured JSON or binary output paths",
+        ],
+      },
+      events: {
+        src: "images/event_detail.png",
+        alt: "AntiTod event detail screenshot",
+        title: "Threat event detail",
+        description:
+          "Investigate a specific event with timeline context, related threats, indicators, and recommended response actions.",
+        points: [
+          "Event timeline and investigation context",
+          "Associated indicators and incident links",
+          "Response recommendations for analysts",
+        ],
+      },
+      policy: {
+        src: "images/generate_policy.png",
+        alt: "AntiTod policy generation screenshot",
+        title: "Autonomous policy synthesis",
+        description:
+          "Generate security policies from threat evidence, validate their impact, and prepare governed rollout plans with rollback compatibility.",
+        points: [
+          "Threat-based policy generation",
+          "Validation and impact analysis",
+          "Deployment readiness with human control",
+        ],
+      },
+    };
+
+    const image = document.querySelector("#showcase-image");
+    const title = document.querySelector("#showcase-title");
+    const description = document.querySelector("#showcase-description");
+    const list = document.querySelector("#showcase-list");
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const showcaseShell = document.querySelector(".showcase-shell");
+    const heroVisual = document.querySelector(".hero-visual");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let activeShot = "dashboard";
+    let showcaseTimer;
+
+    function setShowcaseShot(key) {
+      const shot = screenshots[key];
+      if (!shot || key === activeShot) return;
+
+      activeShot = key;
+      tabButtons.forEach((tab) => {
+        tab.setAttribute("aria-selected", String(tab.dataset.shot === key));
+      });
+
+      image.style.opacity = "0";
+      setTimeout(() => {
+        image.src = shot.src;
+        image.alt = shot.alt;
+        title.textContent = shot.title;
+        description.textContent = shot.description;
+        list.innerHTML = shot.points
+          .map((point) => `<li><span class="check">+</span><span>${point}</span></li>`)
+          .join("");
+        image.style.opacity = "1";
+      }, 140);
+    }
+
+    function startShowcaseAutoplay() {
+      if (reduceMotion) return;
+      window.clearInterval(showcaseTimer);
+      showcaseTimer = window.setInterval(() => {
+        const keys = Object.keys(screenshots);
+        const nextIndex = (keys.indexOf(activeShot) + 1) % keys.length;
+        setShowcaseShot(keys[nextIndex]);
+      }, 4500);
+    }
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setShowcaseShot(button.dataset.shot);
+        startShowcaseAutoplay();
+      });
+    });
+
+    if (showcaseShell) {
+      showcaseShell.addEventListener("mouseenter", () => window.clearInterval(showcaseTimer));
+      showcaseShell.addEventListener("mouseleave", startShowcaseAutoplay);
+      showcaseShell.addEventListener("focusin", () => window.clearInterval(showcaseTimer));
+      showcaseShell.addEventListener("focusout", startShowcaseAutoplay);
+    }
+
+    startShowcaseAutoplay();
+
+    if (heroVisual && !reduceMotion && window.matchMedia("(pointer: fine)").matches) {
+      heroVisual.addEventListener("mousemove", (event) => {
+        const bounds = heroVisual.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+        heroVisual.style.setProperty("--tilt-y", `${x * 8 - 3}deg`);
+        heroVisual.style.setProperty("--tilt-x", `${2 - y * 6}deg`);
+      });
+
+      heroVisual.addEventListener("mouseleave", () => {
+        heroVisual.style.setProperty("--tilt-y", "-5deg");
+        heroVisual.style.setProperty("--tilt-x", "2deg");
+      });
+    }
+
+    document.querySelectorAll(".faq-question").forEach((button) => {
+      button.addEventListener("click", () => {
+        const item = button.closest(".faq-item");
+        const isOpen = item.classList.toggle("is-open");
+        button.setAttribute("aria-expanded", String(isOpen));
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.16 }
+      );
+
+      revealElements.forEach((element) => observer.observe(element));
+    } else {
+      revealElements.forEach((element) => element.classList.add("is-visible"));
+    }
+  </script>
+</body>
+
+</html>

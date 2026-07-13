@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AntiGPT | AI Verification Platform</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="#" class="site-logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:0.25rem;"><path d="M12 2L2 22h20L12 2z"></path></svg>
+      ANTI AI
+    </a>
+    <nav class="nav-links">
+      <a href="#" class="nav-link">Origin</a>
+      <a href="#" class="nav-link">What We Build</a>
+      <a href="#" class="nav-link">Our Story</a>
+      <a href="#" class="nav-link">The Makers</a>
+      <a href="#" class="nav-link">Join the Mission</a>
+      <a href="#" class="btn-collaborate">Collaborate?</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- SECTION 1: HERO -->
+    <section class="section min-h-screen hero-section" style="padding-top: 12rem; display: flex; align-items: center;">
+      <div class="radial-glow" style="top: -100px; left: -100px;"></div>
+      <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+        
+        <div class="hero-content reveal-up">
+          <div class="label-pill">AI Verification Platform</div>
+          <h1 class="huge-title" style="margin-bottom: 1.5rem;">Trust Nothing.<br>Verify Everything.</h1>
+          <p class="subheading" style="margin-bottom: 3rem;">
+            AI-generated images, videos, audio and scams are becoming impossible to distinguish.<br><br>
+            AntiGPT helps you verify what's real before you trust it.
+          </p>
+          <div style="display: flex; gap: 1rem;">
+            <a href="#" class="btn-primary">Download App</a>
+            <a href="#" class="btn-secondary">Watch Demo</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-up delay-2" style="position: relative; display: flex; justify-content: center; align-items: center;">
+          <div class="radial-glow" style="background: radial-gradient(circle, var(--accent-red) 0%, rgba(8,8,8,0) 60%); top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.15;"></div>
+          <!-- Floating iPhone mockup CSS -->
+          <div style="width: 320px; height: 650px; background: #000; border: 12px solid #222; border-radius: 48px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 0 2px #333; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; animation: float 6s ease-in-out infinite;">
+            <!-- Notch -->
+            <div style="position: absolute; top: 0; width: 120px; height: 30px; background: #222; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; z-index: 10;"></div>
+            
+            <div style="padding: 2rem; text-align: center; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+              <div style="width: 80px; height: 80px; background: rgba(239, 68, 68, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              </div>
+              <h3 style="font-size: 1.5rem; color: var(--accent-red);">AI Generated</h3>
+              <div style="font-size: 4rem; font-weight: 700; line-height: 1; margin: 1rem 0;">87%</div>
+              <p style="color: var(--text-secondary);">Confidence</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: CAPABILITY STRIP -->
+    <section class="section" style="padding: 4rem 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); overflow: hidden;">
+      <div class="marquee-container" style="display: flex; gap: 2rem; white-space: nowrap; animation: marquee 30s linear infinite;">
+        <!-- Generating multiple for infinite effect -->
+        <div class="marquee-content" style="display: flex; gap: 2rem;">
+          <div class="capability-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg> Images</div>
+          <div class="capability-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg> Videos</div>
+          <div class="capability-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg> Audio</div>
+          <div class="capability-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> SMS</div>
+          <div class="capability-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email</div>
+          <div class="capability-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> URLs</div>
+          <div class="capability-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> Live Screen</div>
+        </div>
+        <!-- Duplicate for infinite marquee -->
+        <div class="marquee-content" style="display: flex; gap: 2rem;">
+          <div class="capability-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg> Images</div>
+          <div class="capability-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg> Videos</div>
+          <div class="capability-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg> Audio</div>
+          <div class="capability-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> SMS</div>
+          <div class="capability-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email</div>
+          <div class="capability-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> URLs</div>
+          <div class="capability-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> Live Screen</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: PROBLEM -->
+    <section class="section" style="padding: 12rem 0;">
+      <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center;">
+        <div class="reveal-up">
+          <h2 class="section-title" style="margin-bottom: 3rem;">The internet is easier to fake than ever.</h2>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.5rem;">
+            <li style="font-size: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; gap: 1rem;"><div style="width: 8px; height: 8px; background: var(--text-primary); border-radius: 50%;"></div> Deepfake videos.</li>
+            <li style="font-size: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; gap: 1rem;"><div style="width: 8px; height: 8px; background: var(--text-primary); border-radius: 50%;"></div> Voice cloning.</li>
+            <li style="font-size: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; gap: 1rem;"><div style="width: 8px; height: 8px; background: var(--text-primary); border-radius: 50%;"></div> AI generated images.</li>
+            <li style="font-size: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; gap: 1rem;"><div style="width: 8px; height: 8px; background: var(--text-primary); border-radius: 50%;"></div> Phishing.</li>
+            <li style="font-size: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; gap: 1rem;"><div style="width: 8px; height: 8px; background: var(--text-primary); border-radius: 50%;"></div> Fake banking messages.</li>
+            <li style="font-size: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; gap: 1rem;"><div style="width: 8px; height: 8px; background: var(--text-primary); border-radius: 50%;"></div> Fraud calls.</li>
+            <li style="font-size: 1.5rem; color: var(--text-secondary); display: flex; align-items: center; gap: 1rem;"><div style="width: 8px; height: 8px; background: var(--text-primary); border-radius: 50%;"></div> Scam emails.</li>
+          </ul>
+        </div>
+        
+        <div class="reveal-up delay-2" style="position: relative; height: 600px; background: #111; border-radius: 32px; border: 1px solid var(--border-color); overflow: hidden; display: flex; align-items: center; justify-content: center;">
+          <!-- Glitch portrait representation -->
+          <div style="position: absolute; width: 100%; height: 100%; opacity: 0.4; background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, #000 2px, #000 4px);"></div>
+          <div style="width: 250px; height: 350px; background: linear-gradient(135deg, #222, #111); border-radius: 100px; box-shadow: 0 0 50px rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; position: relative;">
+            <div style="position: absolute; top: 10%; width: 120%; height: 2px; background: var(--accent-red); opacity: 0.5; animation: glitch 3s infinite;"></div>
+            <div style="position: absolute; bottom: 30%; width: 110%; height: 1px; background: var(--accent-blue); opacity: 0.3; animation: glitch 2s infinite reverse;"></div>
+            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="1"><circle cx="12" cy="8" r="5"></circle><path d="M20 21a8 8 0 0 0-16 0"></path></svg>
+          </div>
+          
+          <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); color: var(--accent-red); padding: 0.75rem 1.5rem; border-radius: 9999px; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; backdrop-filter: blur(10px); white-space: nowrap;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            This content may not be real.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: TRANSITION -->
+    <section class="section flex-center" style="padding: 6rem 0;">
+      <h2 class="huge-title reveal-up" style="text-align: center; max-width: 1000px;">So we built AntiGPT.</h2>
+    </section>
+
+    <!-- SECTION 5: SOLUTION -->
+    <section class="section" style="padding: 8rem 0;">
+      <div class="container" style="display: flex; flex-direction: column; gap: 12rem;">
+        
+        <!-- Feature 1: Image Detection -->
+        <div class="feature-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;">
+          <div class="feature-text reveal-up">
+            <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Image Detection</h3>
+            <p style="color: var(--text-secondary); font-size: 1.25rem; margin-bottom: 2rem;">Analyze pixels at a microscopic level to detect GANs, diffusion models, and subtle manipulations invisible to the human eye.</p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem; color: var(--text-secondary);">
+              <li style="display: flex; align-items: center; gap: 0.75rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)"><polyline points="20 6 9 17 4 12"></polyline></svg> Midjourney & DALL-E detection</li>
+              <li style="display: flex; align-items: center; gap: 0.75rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)"><polyline points="20 6 9 17 4 12"></polyline></svg> Metadata forgery analysis</li>
+            </ul>
+          </div>
+          <div class="feature-visual reveal-up delay-2" style="background: #111; border: 1px solid var(--border-color); border-radius: 24px; padding: 2rem; position: relative; overflow: hidden; height: 400px; display: flex; align-items: center; justify-content: center;">
+            <div class="radial-glow" style="background: radial-gradient(circle, var(--accent-blue) 0%, rgba(0,0,0,0) 70%); top: -50px; right: -50px;"></div>
+            <!-- Mockup -->
+            <div style="width: 80%; height: 80%; background: #080808; border-radius: 16px; border: 1px solid #222; display: flex; flex-direction: column;">
+              <div style="height: 60%; background: #222; border-top-left-radius: 16px; border-top-right-radius: 16px; position: relative;">
+                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); padding: 4px 8px; border-radius: 4px; font-size: 0.75rem;">AI Prob: 98%</div>
+              </div>
+              <div style="padding: 1rem; flex: 1; display: flex; align-items: center; justify-content: space-between;">
+                <div>
+                  <div style="font-weight: 600;">Diffusion Model Detected</div>
+                  <div style="font-size: 0.875rem; color: var(--text-secondary);">Stable Diffusion v1.5</div>
+                </div>
+                <div style="color: var(--accent-red); font-weight: 600;">AI Generated</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2: Video Detection (Reversed) -->
+        <div class="feature-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; direction: rtl;">
+          <div class="feature-text reveal-up delay-2" style="direction: ltr;">
+            <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Video Detection</h3>
+            <p style="color: var(--text-secondary); font-size: 1.25rem; margin-bottom: 2rem;">Frame-by-frame analysis identifies deepfakes, face swapping, and lip-sync inconsistencies in real-time.</p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem; color: var(--text-secondary);">
+              <li style="display: flex; align-items: center; gap: 0.75rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)"><polyline points="20 6 9 17 4 12"></polyline></svg> Frame coherence check</li>
+              <li style="display: flex; align-items: center; gap: 0.75rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)"><polyline points="20 6 9 17 4 12"></polyline></svg> Micro-expression analysis</li>
+            </ul>
+          </div>
+          <div class="feature-visual reveal-up" style="direction: ltr; background: #111; border: 1px solid var(--border-color); border-radius: 24px; padding: 2rem; position: relative; overflow: hidden; height: 400px; display: flex; align-items: center; justify-content: center;">
+             <!-- Video Timeline Mockup -->
+             <div style="width: 100%; display: flex; flex-direction: column; gap: 1rem;">
+               <div style="height: 200px; background: #222; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative;">
+                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                 <!-- Warning box -->
+                 <div style="position: absolute; top: 50%; left: 60%; width: 40px; height: 40px; border: 2px dashed var(--accent-red); border-radius: 8px;"></div>
+               </div>
+               <div style="height: 40px; background: #1a1a1a; border-radius: 8px; display: flex; overflow: hidden;">
+                 <div style="width: 30%; background: #2a2a2a; border-right: 1px solid #333;"></div>
+                 <div style="width: 15%; background: rgba(239, 68, 68, 0.2); border-right: 1px solid var(--accent-red);"></div>
+                 <div style="width: 55%; background: #2a2a2a;"></div>
+               </div>
+             </div>
+          </div>
+        </div>
+        
+        <!-- Feature 3: Audio Detection -->
+        <div class="feature-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;">
+          <div class="feature-text reveal-up">
+            <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Audio Detection</h3>
+            <p style="color: var(--text-secondary); font-size: 1.25rem; margin-bottom: 2rem;">Detect synthetic voices and cloned audio by analyzing frequency artifacts and breathing patterns.</p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem; color: var(--text-secondary);">
+              <li style="display: flex; align-items: center; gap: 0.75rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)"><polyline points="20 6 9 17 4 12"></polyline></svg> ElevenLabs & VALL-E detection</li>
+              <li style="display: flex; align-items: center; gap: 0.75rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)"><polyline points="20 6 9 17 4 12"></polyline></svg> Spectral anomaly mapping</li>
+            </ul>
+          </div>
+          <div class="feature-visual reveal-up delay-2" style="background: #111; border: 1px solid var(--border-color); border-radius: 24px; padding: 2rem; position: relative; overflow: hidden; height: 400px; display: flex; align-items: center; justify-content: center;">
+            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; gap: 4px;">
+              <!-- Fake Audio Waveform -->
+              <div style="width: 8px; height: 20%; background: #333; border-radius: 4px;"></div>
+              <div style="width: 8px; height: 50%; background: #333; border-radius: 4px;"></div>
+              <div style="width: 8px; height: 80%; background: var(--accent-red); border-radius: 4px; box-shadow: 0 0 10px var(--accent-red);"></div>
+              <div style="width: 8px; height: 100%; background: var(--accent-red); border-radius: 4px; box-shadow: 0 0 10px var(--accent-red);"></div>
+              <div style="width: 8px; height: 60%; background: var(--accent-red); border-radius: 4px; box-shadow: 0 0 10px var(--accent-red);"></div>
+              <div style="width: 8px; height: 40%; background: #333; border-radius: 4px;"></div>
+              <div style="width: 8px; height: 70%; background: #333; border-radius: 4px;"></div>
+              <div style="width: 8px; height: 30%; background: #333; border-radius: 4px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Continue pattern for 4-7 briefly to avoid overly massive code block, using elegant summary -->
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1.5rem;">
+          <div class="reveal-up feature-card" style="min-height: auto; padding: 3rem;">
+            <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">Live Screen Detection</h4>
+            <p style="color: var(--text-secondary);">Verify if a shared screen is a live application or a pre-recorded/manipulated video feed during video calls.</p>
+          </div>
+          <div class="reveal-up delay-1 feature-card" style="min-height: auto; padding: 3rem;">
+            <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">SMS Fraud Detection</h4>
+            <p style="color: var(--text-secondary);">Analyze message semantics and links to identify smishing attempts and socially engineered text messages.</p>
+          </div>
+          <div class="reveal-up delay-2 feature-card" style="min-height: auto; padding: 3rem;">
+            <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">Email Scam Detection</h4>
+            <p style="color: var(--text-secondary);">Deep header analysis and LLM-based behavioral checks to catch advanced spear-phishing campaigns.</p>
+          </div>
+          <div class="reveal-up delay-3 feature-card" style="min-height: auto; padding: 3rem;">
+            <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">Phishing URL Detection</h4>
+            <p style="color: var(--text-secondary);">Real-time domain reputation and homograph attack detection to ensure you only visit authentic websites.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 6: INTERACTIVE DEMO -->
+    <section class="section" style="padding: 8rem 0; background: rgba(255,255,255,0.02);">
+      <div class="container">
+        <h2 class="section-title reveal-up" style="text-align: center; margin-bottom: 4rem;">Try AntiGPT</h2>
+        
+        <div class="reveal-up delay-1" style="background: #0d0d0d; border: 1px solid var(--border-color); border-radius: 24px; overflow: hidden; display: flex; height: 600px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
+          <!-- Left Sidebar -->
+          <div style="width: 250px; background: #080808; border-right: 1px solid var(--border-color); padding: 2rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+            <div style="color: var(--text-secondary); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1rem; text-transform: uppercase;">Scan Type</div>
+            <div style="padding: 0.75rem 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; font-weight: 500; display: flex; align-items: center; gap: 0.75rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg> Image Scan</div>
+            <div style="padding: 0.75rem 1rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.75rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg> Video Scan</div>
+            <div style="padding: 0.75rem 1rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.75rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg> Audio Scan</div>
+            <div style="padding: 0.75rem 1rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.75rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> SMS</div>
+            <div style="padding: 0.75rem 1rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.75rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email</div>
+            <div style="padding: 0.75rem 1rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.75rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> URL</div>
+          </div>
+          <!-- Center -->
+          <div style="flex: 1; padding: 3rem; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div style="width: 100%; max-width: 400px; height: 300px; border: 2px dashed rgba(255,255,255,0.1); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; background: rgba(255,255,255,0.02); cursor: pointer; transition: all 0.2s ease;">
+              <div style="width: 48px; height: 48px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              </div>
+              <div style="text-align: center;">
+                <div style="font-weight: 500; margin-bottom: 0.5rem;">Drag & Drop Upload</div>
+                <div style="font-size: 0.875rem; color: var(--text-secondary);">Supports JPG, PNG, WEBP (Max 10MB)</div>
+              </div>
+            </div>
+          </div>
+          <!-- Right Sidebar -->
+          <div style="width: 300px; background: #080808; border-left: 1px solid var(--border-color); padding: 2rem; display: flex; flex-direction: column;">
+            <div style="color: var(--text-secondary); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 2rem; text-transform: uppercase;">Analysis Result</div>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-color);">
+              <div style="width: 64px; height: 64px; background: rgba(31, 111, 43, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+              <h3 style="font-size: 1.5rem; color: var(--accent-green);">Authentic</h3>
+              <div style="font-size: 3rem; font-weight: 700; line-height: 1;">92%</div>
+              <p style="color: var(--text-secondary); font-size: 0.875rem;">Confidence Score</p>
+            </div>
+            
+            <div style="font-size: 0.875rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.75rem;">
+              <div style="display: flex; justify-content: space-between;"><span>Metadata</span> <span style="color: var(--text-primary);">Intact</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>Noise Pattern</span> <span style="color: var(--text-primary);">Natural</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>Error Level</span> <span style="color: var(--text-primary);">Normal</span></div>
+            </div>
+            <div style="margin-top: auto; font-size: 0.75rem; color: var(--text-secondary); text-align: center;">
+              Multiple AI engines checked.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: WHY ANTI GPT -->
+    <section class="section" style="padding: 5rem 0;">
+      <div class="container">
+        <h2 class="section-title reveal-up" style="margin-bottom: 2rem;">Built differently.</h2>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
+          
+          <div class="reveal-up feature-card">
+            <div>
+              <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Multiple AI Engines</h4>
+              <p style="color: var(--text-secondary); font-size: 0.875rem;">We cross-reference results across several models to prevent false positives.</p>
+            </div>
+          </div>
+
+          <div class="reveal-up delay-1 feature-card">
+            <div>
+              <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Privacy First</h4>
+              <p style="color: var(--text-secondary); font-size: 0.875rem;">Your uploads are never stored or used to train models. Zero-retention policy.</p>
+            </div>
+          </div>
+
+          <div class="reveal-up delay-2 feature-card">
+            <div>
+              <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Built for Reality</h4>
+              <p style="color: var(--text-secondary); font-size: 0.875rem;">Designed for real-world scenarios—from compressed WhatsApp images to live calls.</p>
+            </div>
+          </div>
+
+          <div class="reveal-up delay-3 feature-card">
+            <div>
+              <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Fast & Accurate</h4>
+              <p style="color: var(--text-secondary); font-size: 0.875rem;">Receive comprehensive analysis reports in milliseconds, without compromising precision.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: HOW IT WORKS -->
+    <section class="section" style="padding: 8rem 0; border-top: 1px solid var(--border-color);">
+      <div class="container flex-center" style="flex-direction: column;">
+        <h2 class="section-title reveal-up" style="margin-bottom: 6rem;">How it works</h2>
+        
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem; position: relative;">
+          <!-- Connecting Line -->
+          <div style="position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: linear-gradient(180deg, transparent, var(--border-color) 20%, var(--border-color) 80%, transparent); transform: translateX(-50%); z-index: -1;"></div>
+
+          <div class="reveal-up" style="background: #111; padding: 1rem 2rem; border-radius: 9999px; border: 1px solid var(--border-color); font-weight: 500;">Upload</div>
+          
+          <div class="reveal-up delay-1" style="display: flex; gap: 2rem; margin: 2rem 0;">
+            <div style="background: rgba(255,255,255,0.03); padding: 1rem 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); font-size: 0.875rem; color: var(--text-secondary);">AI Engine 1</div>
+            <div style="background: rgba(255,255,255,0.03); padding: 1rem 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); font-size: 0.875rem; color: var(--text-secondary);">AI Engine 2</div>
+            <div style="background: rgba(255,255,255,0.03); padding: 1rem 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); font-size: 0.875rem; color: var(--text-secondary);">AI Engine 3</div>
+          </div>
+
+          <div class="reveal-up delay-2" style="background: #111; padding: 1rem 2rem; border-radius: 9999px; border: 1px solid var(--border-color); font-weight: 500; margin-bottom: 2rem;">Confidence Calculation</div>
+          
+          <div class="reveal-up delay-3" style="background: #f0f0f0; color: #000; padding: 1rem 2.5rem; border-radius: 9999px; font-weight: 600; font-size: 1.125rem; box-shadow: 0 0 30px rgba(255,255,255,0.2);">Final Verdict</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: VALUE PROPOSITION -->
+    <section class="section" style="padding: 12rem 0; background: #000;">
+      <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center;">
+        <div class="reveal-up">
+          <h2 class="huge-title" style="font-size: clamp(3rem, 6vw, 4.5rem);">Know before<br>you trust.</h2>
+        </div>
+        <div class="reveal-up delay-2">
+          <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <li style="display: flex; align-items: center; gap: 1rem; font-size: 1.25rem; font-weight: 500;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> AI Images</li>
+            <li style="display: flex; align-items: center; gap: 1rem; font-size: 1.25rem; font-weight: 500;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Videos</li>
+            <li style="display: flex; align-items: center; gap: 1rem; font-size: 1.25rem; font-weight: 500;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Audio</li>
+            <li style="display: flex; align-items: center; gap: 1rem; font-size: 1.25rem; font-weight: 500;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> SMS</li>
+            <li style="display: flex; align-items: center; gap: 1rem; font-size: 1.25rem; font-weight: 500;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Email</li>
+            <li style="display: flex; align-items: center; gap: 1rem; font-size: 1.25rem; font-weight: 500;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> URLs</li>
+            <li style="display: flex; align-items: center; gap: 1rem; font-size: 1.25rem; font-weight: 500;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Fraud Calls</li>
+            <li style="display: flex; align-items: center; gap: 1rem; font-size: 1.25rem; font-weight: 500;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Live Screen</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: COMPARISON TABLE -->
+    <section class="section" style="padding: 8rem 0;">
+      <div class="container">
+        <h2 class="section-title reveal-up" style="text-align: center; margin-bottom: 4rem;">Not just another AI detector.</h2>
+        
+        <div class="reveal-up delay-1" style="max-width: 900px; margin: 0 auto; background: #0a0a0a; border: 1px solid var(--border-color); border-radius: 24px; overflow: hidden;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 2rem; border-bottom: 1px solid var(--border-color); font-weight: 600; font-size: 1.25rem;">
+            <div></div>
+            <div style="color: var(--text-secondary); text-align: center;">Others</div>
+            <div style="text-align: center;">AntiGPT</div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 2rem; border-bottom: 1px solid #1a1a1a; align-items: center;">
+            <div style="font-weight: 500;">Models</div>
+            <div style="color: var(--text-secondary); text-align: center;">Single AI Model</div>
+            <div style="text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Multiple AI Models</div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 2rem; border-bottom: 1px solid #1a1a1a; align-items: center;">
+            <div style="font-weight: 500;">Formats</div>
+            <div style="color: var(--text-secondary); text-align: center;">Image Only</div>
+            <div style="text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-format Detection</div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 2rem; border-bottom: 1px solid #1a1a1a; align-items: center;">
+            <div style="font-weight: 500;">Reporting</div>
+            <div style="color: var(--text-secondary); text-align: center;">Basic Labels</div>
+            <div style="text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Confidence Reports</div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 2rem; border-bottom: 1px solid #1a1a1a; align-items: center;">
+            <div style="font-weight: 500;">Scams</div>
+            <div style="color: var(--text-secondary); text-align: center;">No Fraud Detection</div>
+            <div style="text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Fraud Detection Included</div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 2rem; align-items: center;">
+            <div style="font-weight: 500;">Meetings</div>
+            <div style="color: var(--text-secondary); text-align: center;">No Live Screen</div>
+            <div style="text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Live Screen Analysis</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: STATISTICS -->
+    <section class="section" style="padding: 8rem 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
+        <div class="reveal-up">
+          <div class="stat-number" style="font-size: 4rem; font-weight: 700; background: linear-gradient(180deg, #fff 0%, #a0a0a0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">2.4M+</div>
+          <div style="color: var(--text-secondary); font-size: 1.125rem; margin-top: 0.5rem;">Images</div>
+        </div>
+        <div class="reveal-up delay-1">
+          <div class="stat-number" style="font-size: 4rem; font-weight: 700; background: linear-gradient(180deg, #fff 0%, #a0a0a0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">890K+</div>
+          <div style="color: var(--text-secondary); font-size: 1.125rem; margin-top: 0.5rem;">Videos</div>
+        </div>
+        <div class="reveal-up delay-2">
+          <div class="stat-number" style="font-size: 4rem; font-weight: 700; background: linear-gradient(180deg, #fff 0%, #a0a0a0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">650K+</div>
+          <div style="color: var(--text-secondary); font-size: 1.125rem; margin-top: 0.5rem;">Audio</div>
+        </div>
+        <div class="reveal-up delay-3">
+          <div class="stat-number" style="font-size: 4rem; font-weight: 700; background: linear-gradient(180deg, #fff 0%, #a0a0a0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">98.7%</div>
+          <div style="color: var(--text-secondary); font-size: 1.125rem; margin-top: 0.5rem;">Detection Confidence</div>
+        </div>
+        <div class="reveal-up delay-3">
+          <div class="stat-number" style="font-size: 4rem; font-weight: 700; background: linear-gradient(180deg, #fff 0%, #a0a0a0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">120K+</div>
+          <div style="color: var(--text-secondary); font-size: 1.125rem; margin-top: 0.5rem;">Users</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: FAQ -->
+    <section class="section" style="padding: 5rem 0;">
+      <div class="container" style="max-width: 800px;">
+        <h2 class="section-title reveal-up" style="margin-bottom: 4rem;">Frequently Asked Questions</h2>
+        
+        <div class="faq-accordion">
+          <!-- Item 1 -->
+          <div class="faq-item reveal-up delay-1" style="border-bottom: 1px solid var(--border-color); padding: 2rem 0; cursor: pointer;" onclick="this.classList.toggle('open')">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="font-size: 1.25rem; font-weight: 500;">Can AI detection ever be perfect?</h3>
+              <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+            <div class="faq-answer" style="display: none; padding-top: 1.5rem; color: var(--text-secondary); line-height: 1.6;">
+              While no system is 100% flawless, our multi-engine approach drastically reduces false positives and provides the highest possible confidence score available in the industry today.
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="faq-item reveal-up delay-2" style="border-bottom: 1px solid var(--border-color); padding: 2rem 0; cursor: pointer;" onclick="this.classList.toggle('open')">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="font-size: 1.25rem; font-weight: 500;">Does AntiGPT store uploads?</h3>
+              <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+            <div class="faq-answer" style="display: none; padding-top: 1.5rem; color: var(--text-secondary); line-height: 1.6;">
+              No. We process your files in memory and discard them immediately after analysis. We maintain a strict zero-retention policy.
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="faq-item reveal-up delay-3" style="border-bottom: 1px solid var(--border-color); padding: 2rem 0; cursor: pointer;" onclick="this.classList.toggle('open')">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="font-size: 1.25rem; font-weight: 500;">Can I scan screenshots?</h3>
+              <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+            <div class="faq-answer" style="display: none; padding-top: 1.5rem; color: var(--text-secondary); line-height: 1.6;">
+              Yes. AntiGPT can analyze screenshots of text messages, emails, and images to determine authenticity and detect tampering.
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div class="faq-item reveal-up delay-1" style="border-bottom: 1px solid var(--border-color); padding: 2rem 0; cursor: pointer;" onclick="this.classList.toggle('open')">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="font-size: 1.25rem; font-weight: 500;">How reliable are confidence scores?</h3>
+              <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+            <div class="faq-answer" style="display: none; padding-top: 1.5rem; color: var(--text-secondary); line-height: 1.6;">
+              Extremely reliable. Because we cross-reference multiple independent AI detection models, a high confidence score means several distinct algorithms reached the same conclusion.
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="faq-item reveal-up delay-2" style="border-bottom: 1px solid var(--border-color); padding: 2rem 0; cursor: pointer;" onclick="this.classList.toggle('open')">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="font-size: 1.25rem; font-weight: 500;">Can businesses integrate AntiGPT?</h3>
+              <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+            <div class="faq-answer" style="display: none; padding-top: 1.5rem; color: var(--text-secondary); line-height: 1.6;">
+              Yes, we offer an enterprise API designed for high-volume integration into your existing security infrastructure, customer onboarding, and moderation tools.
+            </div>
+          </div>
+          <!-- Item 6 -->
+          <div class="faq-item reveal-up delay-3" style="border-bottom: 1px solid var(--border-color); padding: 2rem 0; cursor: pointer;" onclick="this.classList.toggle('open')">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="font-size: 1.25rem; font-weight: 500;">Does it work offline?</h3>
+              <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+            <div class="faq-answer" style="display: none; padding-top: 1.5rem; color: var(--text-secondary); line-height: 1.6;">
+              Currently, AntiGPT requires an internet connection as it relies on complex server-side multi-engine processing to maintain high accuracy and speed.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 13: FINAL CTA -->
+    <section class="section" style="padding: 12rem 0; overflow: hidden; position: relative;">
+      <div class="radial-glow" style="background: radial-gradient(circle, var(--accent-purple) 0%, rgba(8,8,8,0) 60%); top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.15; width: 1000px; height: 1000px;"></div>
+      <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+        
+        <div class="reveal-up">
+          <h2 class="huge-title" style="margin-bottom: 1.5rem; font-size: clamp(3rem, 5vw, 4.5rem);">The internet will never be 100% authentic again.</h2>
+          <p class="subheading" style="margin-bottom: 3rem; font-size: 1.5rem; color: var(--text-primary);">
+            But you can verify it.
+          </p>
+          <a href="#" class="btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem;">Download AntiGPT</a>
+        </div>
+
+        <div class="reveal-up delay-2" style="position: relative; display: flex; justify-content: center;">
+          <!-- Beautiful iPhone Render Mockup -->
+          <div style="width: 320px; height: 650px; background: #080808; border: 4px solid #333; border-radius: 48px; box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 0 8px #000; position: relative; overflow: hidden; transform: rotate(10deg); transition: transform 0.5s ease;">
+            <!-- Notch -->
+            <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 120px; height: 30px; background: #000; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; z-index: 10;"></div>
+            <!-- App Screen -->
+            <div style="padding: 4rem 2rem 2rem; display: flex; flex-direction: column; h-full; gap: 1rem;">
+               <div style="width: 100%; height: 200px; background: #1a1a1a; border-radius: 24px; position: relative; overflow: hidden;">
+                 <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=600" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6; filter: grayscale(100%);" alt="Abstract Art">
+                 <div style="position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.8); color: #fff; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500;">Image</div>
+               </div>
+               <div style="background: #111; padding: 1.5rem; border-radius: 24px; display: flex; flex-direction: column; gap: 1rem;">
+                 <div style="display: flex; justify-content: space-between; align-items: center;">
+                   <span style="font-weight: 500; font-size: 1.125rem;">Analysis</span>
+                   <span style="color: var(--text-secondary); font-size: 0.875rem;">Now</span>
+                 </div>
+                 <div style="display: flex; align-items: center; gap: 1rem;">
+                   <div style="width: 48px; height: 48px; background: rgba(31, 111, 43, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                   </div>
+                   <div>
+                     <div style="font-weight: 600; color: var(--accent-green);">Authentic Image</div>
+                     <div style="font-size: 0.875rem; color: var(--text-secondary);">98% Confidence Score</div>
+                   </div>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <!-- Col 1 -->
+      <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
+        <div style="width: 80px; height: 80px; border-radius: 50%; border: 1px solid var(--text-secondary); display: flex; align-items: center; justify-content: center; position: relative;">
+          <!-- Wireframe globe placeholder -->
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5"><circle cx="12" cy="12" r="10"></circle><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)"></ellipse><ellipse cx="12" cy="12" rx="10" ry="4"></ellipse></svg>
+          <div style="position: absolute; font-weight: 700; font-size: 0.8rem; background: #050505; padding: 0 4px;">ANTI AI</div>
+        </div>
+        <div style="font-size: 0.875rem; color: #fff;">The Truth Prevails.</div>
+      </div>
+      <!-- Col 2 -->
+      <div>
+        <div class="footer-col-title">NAVIGATE</div>
+        <a href="#" class="footer-link">The Prologue</a>
+        <a href="#" class="footer-link">Capabilities</a>
+        <a href="#" class="footer-link">Our Story</a>
+        <a href="#" class="footer-link">The Makers</a>
+        <a href="#" class="footer-link">New Chapters</a>
+        <a href="#" class="footer-link">Collaborate?</a>
+      </div>
+      <!-- Col 3 -->
+      <div>
+        <div class="footer-col-title">FOLLOW US</div>
+        <a href="#" class="footer-link">Instagram</a>
+        <a href="#" class="footer-link">Threads</a>
+        <a href="#" class="footer-link">YouTube</a>
+        <a href="#" class="footer-link">LinkedIn</a>
+      </div>
+      <!-- Col 4 -->
+      <div>
+        <div class="footer-col-title">WRITE TO US</div>
+        <a href="#" class="footer-link">hello@antiai.ltd</a>
+        <a href="#" class="footer-link">support@antiai.ltd</a>
+        <a href="#" class="footer-link">antiai.hr@gmail.com</a>
+      </div>
+      <!-- Col 5 -->
+      <div>
+        <div class="footer-col-title">CALL US AT</div>
+        <a href="#" class="footer-link">+91 91166 65513</a>
+        <a href="#" class="footer-link">+91 93588 94622</a>
+      </div>
+      <!-- Col 6 -->
+      <div>
+        <div class="footer-col-title">LEGAL</div>
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">Terms & Conditions</a>
+        <a href="#" class="footer-link">App Support</a>
+        <a href="#" class="footer-link" style="margin-top: 2rem;">Locate us &rarr;</a>
+      </div>
+    </div>
+    
+    <!-- Background faint text -->
+    <div class="footer-bg-text">अन्ते सत्यं विजयते ।</div>
+
+    <!-- Chat bubble -->
+    <div class="chat-bubble">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </div>
+  </footer>
+
+  <style>
+    /* Adding small inline style for FAQ accordion functionality */
+    .faq-item.open .faq-answer { display: block !important; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); transition: transform 0.2s; }
+    .faq-icon { transition: transform 0.2s; }
+  </style>
+  <script src="script.js"></script>
+</body>
+</html>

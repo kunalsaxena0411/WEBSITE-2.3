@@ -1,6 +1,17 @@
-import { createClient } from "@supabase/supabase-js";
+const supabase = {
+  auth: {
+    signIn: async () => ({ data: null, error: null }),
+    signOut: async () => ({ error: null }),
+    getUser: async () => ({ data: null }),
+  },
 
-const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
-const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
+  from: () => ({
+    select: async () => ({ data: [], error: null }),
+    insert: async () => ({ data: null, error: null }),
+    update: async () => ({ data: null, error: null }),
+    delete: async () => ({ data: null, error: null }),
+  }),
+};
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export default supabase;
+export { supabase };

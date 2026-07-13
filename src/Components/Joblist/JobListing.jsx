@@ -11,14 +11,30 @@ export default function JobListing() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await fetch(`${API_BASE}/api/fetchAllPosition`);
-
-        if (!res.ok) {
-          throw new Error("Failed to fetch jobs");
-        }
-
-        const data = await res.json();
-        setJobs(Array.isArray(data) ? data : []);
+        const mockData = [
+          {
+            id: "job-1",
+            role: "Senior AI Governance Engineer",
+            location: "San Francisco, CA / Remote",
+            business_area: "Security & Safety Orchestration",
+            created_at: new Date().toISOString(),
+          },
+          {
+            id: "job-2",
+            role: "Lead Threat Intelligence Analyst",
+            location: "New York, NY / Remote",
+            business_area: "Threat Research",
+            created_at: new Date().toISOString(),
+          },
+          {
+            id: "job-3",
+            role: "Full Stack Engineer (React/Node)",
+            location: "Remote",
+            business_area: "Product Engineering",
+            created_at: new Date().toISOString(),
+          }
+        ];
+        setJobs(mockData);
         setError(false);
       } catch (err) {
         console.error("Job fetch failed:", err);
