@@ -59,7 +59,7 @@ const Projects = () => {
     {
       imageUrl:
         "/static/Mobile_app_home.png",
-      title: "ANTI-0 Mobile Application",
+      title: "AntiGPT Mobile Application",
       description:
         "A privacy-first mobile application designed to detect AI-generated media. Built for real-world use with fast on-device intelligence and optional verification.",
       keywords: [
@@ -76,7 +76,7 @@ const Projects = () => {
         
       },
       reverse: true,
-      learnMoreLink: "/products/anti-0",
+      learnMoreLink: "/products/anti-gpt",
     },
     {
       imageUrl:

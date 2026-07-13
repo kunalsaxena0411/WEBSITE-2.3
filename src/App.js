@@ -29,7 +29,7 @@ import Cloud from "./Components/SpecificContactPage/cloudcontact";
 import Webser from "./Components/SpecificContactPage/webcontact";
 
 // Product pages
-import AntiZero from "./Components/ProductPages/AntiZero";
+import AntiGPT from "./Components/ProductPages/AntiGPT";
 import Enterprise from "./Components/ProductPages/Enterprise";
 
 // Policy pages
@@ -81,7 +81,7 @@ function App() {
                 <Route path="/projects" element={<Projects />} />
 
                 {/* product pages */}
-                <Route path="/products/anti-0" element={<AntiZero />} />
+                <Route path="/products/anti-gpt" element={<AntiGPT />} />
                 <Route
                   path="/products/enterprise"
                   element={<Enterprise />}
