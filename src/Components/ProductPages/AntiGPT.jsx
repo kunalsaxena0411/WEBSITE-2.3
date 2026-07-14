@@ -37,12 +37,12 @@ const AntiGPT = () => {
               {/* Back Phone: Splash Screen */}
               <div className="phone-device phone-back">
                 <div className="phone-notch"></div>
-                <img src="/images/300x650bb.webp" className="phone-screen" alt="AntiGPT Splash Screen" />
+                <img src="/static/antigpt/hero.webp" className="phone-screen" alt="AntiGPT Splash Screen" />
               </div>
               {/* Front Phone: Home Screen */}
               <div className="phone-device phone-front">
                 <div className="phone-notch"></div>
-                <img src="/images/300x650bb (1).webp" className="phone-screen" alt="AntiGPT Home Screen" />
+                <img src="/static/antigpt/home.png" className="phone-screen" alt="AntiGPT Home Screen" />
               </div>
             </div>
           </div>
@@ -94,7 +94,7 @@ const AntiGPT = () => {
             <div className="radial-glow" style={{ background: "radial-gradient(circle, var(--accent-red) 0%, rgba(8,8,8,0) 70%)", top: "50%", left: "50%", transform: "translate(-50%, -50%)", opacity: 0.15 }}></div>
             <div className="phone-device phone-tilt-right">
               <div className="phone-notch"></div>
-              <img src="/images/300x650bb (3).webp" className="phone-screen" alt="App detected fake content screen" />
+              <img src="/static/antigpt/detection_analysis.webp" className="phone-screen" alt="App detected fake content screen" />
             </div>
           </div>
         </div>
@@ -123,7 +123,7 @@ const AntiGPT = () => {
               <div className="radial-glow" style={{ background: "radial-gradient(circle, var(--accent-blue) 0%, rgba(0,0,0,0) 70%)", top: "-50px", right: "-50px" }}></div>
               <div className="phone-device phone-tilt-right">
                 <div className="phone-notch"></div>
-                <img src="/images/300x650bb (2).webp" className="phone-screen" alt="Scanning Image" />
+                <img src="/static/antigpt/image_detection.png" className="phone-screen" alt="Scanning Image" />
               </div>
             </div>
           </div>
@@ -142,7 +142,7 @@ const AntiGPT = () => {
               <div className="radial-glow" style={{ background: "radial-gradient(circle, var(--accent-purple) 0%, rgba(8,8,8,0) 70%)", top: "50%", left: "50%", transform: "translate(-50%, -50%)", opacity: 0.15 }}></div>
               <div className="phone-device phone-tilt-left">
                 <div className="phone-notch"></div>
-                <img src="/images/300x650bb (4).webp" className="phone-screen" alt="App Scan History Log" />
+                <img src="/static/antigpt/ALL history.webp" className="phone-screen" alt="App Scan History Log" />
               </div>
             </div>
           </div>
@@ -161,7 +161,7 @@ const AntiGPT = () => {
               <div className="radial-glow" style={{ background: "radial-gradient(circle, var(--accent-green) 0%, rgba(8,8,8,0) 70%)", top: "50%", left: "50%", transform: "translate(-50%, -50%)", opacity: 0.15 }}></div>
               <div className="phone-device phone-tilt-right">
                 <div className="phone-notch"></div>
-                <img src="/images/300x650bb (1).webp" className="phone-screen" alt="App Home screen showing Audio scan capability" />
+                <img src="/static/antigpt/home.png" className="phone-screen" alt="App Home screen showing Audio scan capability" />
               </div>
             </div>
           </div>
@@ -484,7 +484,7 @@ const AntiGPT = () => {
             {/* High-fidelity iPhone Mockup showing Scan Results */}
             <div className="phone-device phone-tilt-right">
               <div className="phone-notch"></div>
-              <img src="/images/300x650bb (3).webp" className="phone-screen" alt="AntiGPT Scan Results UI" />
+              <img src="/static/antigpt/detection_analysis.webp" className="phone-screen" alt="AntiGPT Scan Results UI" />
             </div>
           </div>
 
