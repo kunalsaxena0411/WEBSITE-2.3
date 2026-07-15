@@ -81,7 +81,7 @@ const Projects = () => {
     {
       imageUrl:
         "/static/enterprise_product.jpeg",
-      title: "ANTI_TOD",
+      title: "ANTITOD",
       description:
         "An enterprise-grade security platform built to predict threats, enforce governed AI decisions, and protect modern cloud infrastructure before attacks occur.",
       keywords: [
