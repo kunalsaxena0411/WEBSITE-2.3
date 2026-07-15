@@ -2,6 +2,7 @@
   "name": "myapp",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://anti-ai-hr-backend-production.up.railway.app",
   "dependencies": {
     "@builder.io/react": "^9.1.0",
     "@codaworks/react-glow": "^1.0.6",

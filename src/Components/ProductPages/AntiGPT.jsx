@@ -16,7 +16,7 @@ const AntiGPT = () => {
       <section className="section min-h-screen hero-section" style={{ paddingTop: "12rem", display: "flex", alignItems: "center" }}>
         <div className="radial-glow" style={{ top: "-100px", left: "-100px" }}></div>
         <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
-          
+
           <div className="hero-content reveal-up">
             <div className="label-pill">AI Verification Platform</div>
             <h1 className="huge-title" style={{ marginBottom: "1.5rem" }}>Trust Nothing.<br />Verify Everything.</h1>
@@ -89,7 +89,7 @@ const AntiGPT = () => {
               <li style={{ fontSize: "1.5rem", color: "var(--text-secondary)", display: "flex", alignItems: "center", gap: "1rem" }}><div style={{ width: "8px", height: "8px", background: "var(--text-primary)", borderRadius: "50%" }}></div> Scam emails.</li>
             </ul>
           </div>
-          
+
           <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "520px" }}>
             <div className="radial-glow" style={{ background: "radial-gradient(circle, var(--accent-red) 0%, rgba(8,8,8,0) 70%)", top: "50%", left: "50%", transform: "translate(-50%, -50%)", opacity: 0.15 }}></div>
             <div className="phone-device phone-tilt-right">
@@ -108,7 +108,7 @@ const AntiGPT = () => {
       {/* SECTION 5: SOLUTION */}
       <section className="section" style={{ padding: "8rem 0" }}>
         <div className="container" style={{ display: "flex", flexDirection: "column", gap: "12rem" }}>
-          
+
           {/* Feature 1: Image Detection */}
           <div className="feature-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
             <div className="feature-text reveal-up">
@@ -142,11 +142,11 @@ const AntiGPT = () => {
               <div className="radial-glow" style={{ background: "radial-gradient(circle, var(--accent-purple) 0%, rgba(8,8,8,0) 70%)", top: "50%", left: "50%", transform: "translate(-50%, -50%)", opacity: 0.15 }}></div>
               <div className="phone-device phone-tilt-left">
                 <div className="phone-notch"></div>
-                <img src="/static/antigpt/ALL history.webp" className="phone-screen" alt="App Scan History Log" />
+                <img src="/static/antigpt/all-history.webp" className="phone-screen" alt="App Scan History Log" />
               </div>
             </div>
           </div>
-          
+
           {/* Feature 3: Audio Detection */}
           <div className="feature-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
             <div className="feature-text reveal-up">
@@ -193,7 +193,7 @@ const AntiGPT = () => {
       <section className="section" style={{ padding: "8rem 0", background: "rgba(255,255,255,0.02)" }}>
         <div className="container">
           <h2 className="section-title reveal-up" style={{ textAlign: "center", marginBottom: "4rem" }}>Try AntiGPT</h2>
-          
+
           <div className="reveal-up delay-1" style={{ background: "#0d0d0d", border: "1px solid var(--border-color)", borderRadius: "24px", overflow: "hidden", display: "flex", height: "600px", boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)" }}>
             {/* Left Sidebar */}
             <div style={{ width: "250px", background: "#080808", borderRight: "1px solid var(--border-color)", padding: "2rem 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
@@ -220,7 +220,7 @@ const AntiGPT = () => {
             {/* Right Sidebar */}
             <div style={{ width: "300px", background: "#080808", borderLeft: "1px solid var(--border-color)", padding: "2rem", display: "flex", flexDirection: "column" }}>
               <div style={{ color: "var(--text-secondary)", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.05em", marginBottom: "2rem", textTransform: "uppercase" }}>Analysis Result</div>
-              
+
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1rem", marginBottom: "2rem", paddingBottom: "2rem", borderBottom: "1px solid var(--border-color)" }}>
                 <div style={{ width: "64px", height: "64px", background: "rgba(31, 111, 43, 0.1)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
@@ -229,7 +229,7 @@ const AntiGPT = () => {
                 <div style={{ fontSize: "3rem", fontWeight: 700, lineHeight: 1 }}>92%</div>
                 <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>Confidence Score</p>
               </div>
-              
+
               <div style={{ fontSize: "0.875rem", color: "var(--text-secondary)", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                 <div style={{ display: "flex", justifyContent: "space-between" }}><span>Metadata</span> <span style={{ color: "var(--text-primary)" }}>Intact</span></div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}><span>Noise Pattern</span> <span style={{ color: "var(--text-primary)" }}>Natural</span></div>
@@ -248,7 +248,7 @@ const AntiGPT = () => {
         <div className="container">
           <h2 className="section-title reveal-up" style={{ marginBottom: "2rem" }}>Built differently.</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "2rem" }}>
-            
+
             <div className="reveal-up feature-card">
               <div>
                 <h4 style={{ fontSize: "1.25rem", marginBottom: "0.75rem" }}>Multiple AI Engines</h4>
@@ -285,13 +285,13 @@ const AntiGPT = () => {
       <section className="section" style={{ padding: "8rem 0", borderTop: "1px solid var(--border-color)" }}>
         <div className="container flex-center" style={{ flexDirection: "column" }}>
           <h2 className="section-title reveal-up" style={{ marginBottom: "6rem" }}>How it works</h2>
-          
+
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "2rem", position: "relative" }}>
             {/* Connecting Line */}
             <div style={{ position: "absolute", top: 0, bottom: 0, left: "50%", width: "2px", background: "linear-gradient(180deg, transparent, var(--border-color) 20%, var(--border-color) 80%, transparent)", transform: "translateX(-50%)", zIndex: -1 }}></div>
 
             <div className="reveal-up" style={{ background: "#111", padding: "1rem 2rem", borderRadius: "9999px", border: "1px solid var(--border-color)", fontWeight: 500 }}>Upload</div>
-            
+
             <div className="reveal-up delay-1" style={{ display: "flex", gap: "2rem", margin: "2rem 0" }}>
               <div style={{ background: "rgba(255,255,255,0.03)", padding: "1rem 2rem", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)", fontSize: "0.875rem", color: "var(--text-secondary)" }}>AI Engine 1</div>
               <div style={{ background: "rgba(255,255,255,0.03)", padding: "1rem 2rem", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)", fontSize: "0.875rem", color: "var(--text-secondary)" }}>AI Engine 2</div>
@@ -299,7 +299,7 @@ const AntiGPT = () => {
             </div>
 
             <div className="reveal-up delay-2" style={{ background: "#111", padding: "1rem 2rem", borderRadius: "9999px", border: "1px solid var(--border-color)", fontWeight: 500, marginBottom: "2rem" }}>Confidence Calculation</div>
-            
+
             <div className="reveal-up delay-3" style={{ background: "#f0f0f0", color: "#000", padding: "1rem 2.5rem", borderRadius: "9999px", fontWeight: 600, fontSize: "1.125rem", boxShadow: "0 0 30px rgba(255,255,255,0.2)" }}>Final Verdict</div>
           </div>
         </div>
@@ -330,38 +330,38 @@ const AntiGPT = () => {
       <section className="section" style={{ padding: "8rem 0" }}>
         <div className="container">
           <h2 className="section-title reveal-up" style={{ textAlign: "center", marginBottom: "4rem" }}>Not just another AI detector.</h2>
-          
+
           <div className="reveal-up delay-1" style={{ maxWidth: "900px", margin: "0 auto", background: "#0a0a0a", border: "1px solid var(--border-color)", borderRadius: "24px", overflow: "hidden" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", padding: "2rem", borderBottom: "1px solid var(--border-color)", fontWeight: 600, fontSize: "1.25rem" }}>
               <div></div>
               <div style={{ color: "var(--text-secondary)", textAlign: "center" }}>Others</div>
               <div style={{ textAlign: "center" }}>AntiGPT</div>
             </div>
-            
+
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", padding: "2rem", borderBottom: "1px solid #1a1a1a", alignItems: "center" }}>
               <div style={{ fontWeight: 500 }}>Models</div>
               <div style={{ color: "var(--text-secondary)", textAlign: "center" }}>Single AI Model</div>
               <div style={{ textAlign: "center", display: "flex", alignItems: "center", justify: "center", gap: "0.5rem" }}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Multiple AI Models</div>
             </div>
-            
+
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", padding: "2rem", borderBottom: "1px solid #1a1a1a", alignItems: "center" }}>
               <div style={{ fontWeight: 500 }}>Formats</div>
               <div style={{ color: "var(--text-secondary)", textAlign: "center" }}>Image Only</div>
               <div style={{ textAlign: "center", display: "flex", alignItems: "center", justify: "center", gap: "0.5rem" }}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-format Detection</div>
             </div>
-            
+
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", padding: "2rem", borderBottom: "1px solid #1a1a1a", alignItems: "center" }}>
               <div style={{ fontWeight: 500 }}>Reporting</div>
               <div style={{ color: "var(--text-secondary)", textAlign: "center" }}>Basic Labels</div>
               <div style={{ textAlign: "center", display: "flex", alignItems: "center", justify: "center", gap: "0.5rem" }}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Confidence Reports</div>
             </div>
-            
+
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", padding: "2rem", borderBottom: "1px solid #1a1a1a", alignItems: "center" }}>
               <div style={{ fontWeight: 500 }}>Scams</div>
               <div style={{ color: "var(--text-secondary)", textAlign: "center" }}>No Fraud Detection</div>
               <div style={{ textAlign: "center", display: "flex", alignItems: "center", justify: "center", gap: "0.5rem" }}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Fraud Detection Included</div>
             </div>
-            
+
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", padding: "2rem", alignItems: "center" }}>
               <div style={{ fontWeight: 500 }}>Meetings</div>
               <div style={{ color: "var(--text-secondary)", textAlign: "center" }}>No Live Screen</div>
@@ -401,7 +401,7 @@ const AntiGPT = () => {
       <section className="section" style={{ padding: "5rem 0" }}>
         <div className="container" style={{ maxWidth: "800px" }}>
           <h2 className="section-title reveal-up" style={{ marginBottom: "4rem" }}>Frequently Asked Questions</h2>
-          
+
           <div className="faq-accordion">
             {/* Item 1 */}
             <div className={`faq-item reveal-up delay-1 ${openFaq === 0 ? "open" : ""}`} onClick={() => toggleFaq(0)}>
@@ -471,7 +471,7 @@ const AntiGPT = () => {
       <section className="section" style={{ padding: "12rem 0", overflow: "hidden", position: "relative" }}>
         <div className="radial-glow" style={{ background: "radial-gradient(circle, var(--accent-purple) 0%, rgba(8,8,8,0) 60%)", top: "50%", left: "50%", transform: "translate(-50%, -50%)", opacity: 0.15, width: "1000px", height: "1000px" }}></div>
         <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
-          
+
           <div className="reveal-up">
             <h2 className="huge-title" style={{ marginBottom: "1.5rem", fontSize: "clamp(3rem, 5vw, 4.5rem)" }}>The internet will never be 100% authentic again.</h2>
             <p className="subheading" style={{ marginBottom: "3rem", fontSize: "1.5rem", color: "var(--text-primary)" }}>
