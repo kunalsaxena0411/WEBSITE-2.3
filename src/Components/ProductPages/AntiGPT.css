@@ -32,7 +32,7 @@
 }
 
 .antigpt-page-container .huge-title {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   line-height: 1.1;
   font-weight: 700;
   background: linear-gradient(180deg, #fff 0%, #a0a0a0 100%);
@@ -42,14 +42,14 @@
 }
 
 .antigpt-page-container .section-title {
-  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
   line-height: 1.1;
   font-weight: 600;
   color: var(--accent-green);
 }
 
 .antigpt-page-container .subheading {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.25vw, 1.15rem);
   color: var(--text-secondary);
   font-weight: 400;
   max-width: 600px;
@@ -175,7 +175,7 @@
   background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 9999px;
-  font-size: 1.125rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--text-primary);
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
@@ -375,7 +375,7 @@
 }
 
 .antigpt-page-container .stat-number {
-  font-size: 4rem;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 700;
   background: linear-gradient(180deg, #fff 0%, #a0a0a0 100%);
   -webkit-background-clip: text;
