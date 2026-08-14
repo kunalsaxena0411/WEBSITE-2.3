@@ -18,7 +18,7 @@ export default function JobListing() {
         }
 
         const data = await res.json();
-        setJobs(Array.isArray(data) ? data : []);
+        setJobs(Array.isArray(data) ? data.filter(job => job.deleted_at === null) : []);
         setError(false);
       } catch (err) {
         console.error("Job fetch failed:", err);
@@ -77,3 +77,4 @@ export default function JobListing() {
     </section>
   );
 }
+

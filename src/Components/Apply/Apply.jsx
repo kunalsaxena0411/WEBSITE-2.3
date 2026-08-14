@@ -28,7 +28,7 @@ export default function Apply() {
         const { data, error } = await supabase
           .from("jobs")
           .select("*")
-          .eq("id", jobId)
+          .eq("id", jobId).is("deleted_at", null)
           .single();
 
         if (error) throw error;
@@ -204,3 +204,4 @@ export default function Apply() {
     </main>
   );
 }
+
