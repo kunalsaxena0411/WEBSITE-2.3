@@ -385,7 +385,7 @@ export default function Career() {
         const { data, error } = await supabase
           .from("jobs")
           .select("*")
-          .eq("is_active", true)
+          .eq("is_active", true).is("deleted_at", null)
           .order("created_at", { ascending: false });
 
         if (error) throw error;
@@ -450,3 +450,4 @@ export default function Career() {
     </main>
   );
 }
+
